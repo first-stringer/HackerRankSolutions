@@ -1,0 +1,4 @@
+javac "$1.java"
+if [ $? -eq 0 ]; then
+  java "$1"
+fi
