@@ -4,6 +4,7 @@ import java.text.*;
 import java.util.*;
 import java.util.regex.*;
 
+/** 0001-HR: SOLVE ME FIRST */
 public class SolveMeFirst {
 
   // Added code is in this method.
