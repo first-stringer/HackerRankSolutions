@@ -11,25 +11,25 @@ public class Solution {
   /* 0013-HR: SUBARRAY DIVISION */
   // Complete the birthday function below.
   static int birthday(List<Integer> s, int d, int m) {
-		int count = 0;
+    int count = 0;
 
-		for (int i = 0; i <= s.size() - m; i++) {
-			int sum = 0;			
+    for (int i = 0; i <= s.size() - m; i++) {
+      int sum = 0;
 
-			for (int j = i; j < i + m; j++) {
-				sum += s.get(j);
-			}
+      for (int j = i; j < i + m; j++) {
+        sum += s.get(j);
+      }
 
-			if (sum == d) count++;
-		}
+      if (sum == d) count++;
+    }
 
-		return count;
-	}
+    return count;
+  }
 
   public static void main(String[] args) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bufferedWriter =
-        //new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        // new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
         new BufferedWriter(new OutputStreamWriter(System.out));
 
     int n = Integer.parseInt(bufferedReader.readLine().trim());
