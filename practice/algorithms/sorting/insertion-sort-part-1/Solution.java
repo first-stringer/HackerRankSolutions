@@ -20,7 +20,8 @@ class Result {
   public static void insertionSort1(int n, List<Integer> arr) {
     // Write your code here
     int temp = arr.get(n - 1);
-    for (int i = n - 1; i > 0; i--) {
+    int i;
+    for (i = n - 1; i > 0; i--) {
       if (arr.get(i - 1) > temp) {
         arr.set(i, arr.get(i - 1));
         for (Integer itp : arr) System.out.print(itp + " ");
@@ -29,7 +30,13 @@ class Result {
         arr.set(i, temp);
         for (Integer itp : arr) System.out.print(itp + " ");
         System.out.println();
+        break;
       }
+    }
+    if (i == 0) {
+      arr.set(i, temp);
+      for (Integer itp : arr) System.out.print(itp + " ");
+      System.out.println();
     }
   }
 }
