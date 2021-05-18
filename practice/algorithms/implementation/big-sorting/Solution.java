@@ -6,33 +6,47 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
+/* 0014-HR: BIG SORTING */
+
 class Result {
 
-  static int partition(String numStrings[], int low, int high) {
-    String pivot = numStrings[high];
+  static int compareStringNumbers(String num1, String num2) {
+    if (num1.length() < num2.length()) return -1;
+    if (num1.length() > num2.length()) return 1;
+
+    for (int i = 0; i < num1.length(); i++) {
+      if (num1.charAt(i) < num2.charAt(i)) return -1;
+      if (num1.charAt(i) > num2.charAt(i)) return 1;
+    }
+
+    return 0;
+  }
+
+  static int partition(List<String> numbers, int low, int high) {
+    String pivot = numbers.get(high);
     int i = (low - 1);
 
     for (int j = low; j < high; j++) {
-      if (new BigInteger(numStrings[j]).compareTo(new BigInteger(pivot)) <= 0) {
+      if (compareStringNumbers(numbers.get(j), pivot) <= 0) {
         i++;
-        String temp = numStrings[i];
-        numStrings[i] = numStrings[j];
-        numStrings[j] = temp;
+        String temp = numbers.get(i);
+        numbers.set(i, numbers.get(j));
+        numbers.set(j, temp);
       }
     }
 
-    String temp = numStrings[i + 1];
-    numStrings[i + 1] = numStrings[high];
-    numStrings[high] = temp;
+    String temp = numbers.get(i + 1);
+    numbers.set(i + 1, numbers.get(high));
+    numbers.set(high, temp);
 
     return (i + 1);
   }
 
-  static void quickSort(String numStrings[], int low, int high) {
+  static void quickSort(List<String> numbers, int low, int high) {
     if (low < high) {
-      int pi = partition(numStrings, low, high);
-      quickSort(numStrings, low, pi - 1);
-      quickSort(numStrings, pi + 1, high);
+      int pi = partition(numbers, low, high);
+      quickSort(numbers, low, pi - 1);
+      quickSort(numbers, pi + 1, high);
     }
   }
 
@@ -42,13 +56,10 @@ class Result {
    * The function is expected to return a STRING_ARRAY.
    * The function accepts STRING_ARRAY unsorted as parameter.
    */
-
-  /* 0014-HR: BIG SORTING */
   public static List<String> bigSorting(List<String> unsorted) {
     // Write your code here
-    String[] numStrings = unsorted.toArray(new String[0]);
-    Result.quickSort(numStrings, 0, unsorted.size() - 1);
-    return Arrays.asList(numStrings);
+    Result.quickSort(unsorted, 0, unsorted.size() - 1);
+    return unsorted;
   }
 }
 
