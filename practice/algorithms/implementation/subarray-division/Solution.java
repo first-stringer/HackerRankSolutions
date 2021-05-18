@@ -6,9 +6,10 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
+/* 0013-HR: SUBARRAY DIVISION */
+
 public class Solution {
 
-  /* 0013-HR: SUBARRAY DIVISION */
   // Complete the birthday function below.
   static int birthday(List<Integer> s, int d, int m) {
     int count = 0;
