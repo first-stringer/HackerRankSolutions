@@ -19,7 +19,6 @@ class Result {
 
   public static List<Integer> countingSort(List<Integer> arr) {
     // Write your code here
-    // List<Integer> counts = new ArrayList<Integer>(100);
     int[] counts = new int[100];
     List<Integer> sortedArr = new ArrayList<Integer>(arr.size());
 
