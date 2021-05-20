@@ -19,7 +19,17 @@ class Result {
 
   public static List<Integer> countingSort(List<Integer> arr) {
     // Write your code here
+    List<Integer> counts = new ArrayList<Integer>(100);
 
+    for (int i = 0; i < 100; i++) {
+      counts.add(i, 0);
+    }
+
+    for (Integer number : arr) {
+      counts.set(number, counts.get(number).intValue() + 1);
+    }
+
+    return counts;
   }
 }
 
@@ -28,7 +38,7 @@ public class Solution {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     // BufferedWriter bufferedWriter = new BufferedWriter(new
     // FileWriter(System.getenv("OUTPUT_PATH")));
-    BufferedWriter bufferedWriter = new BufferedWriter(new OutputWriterStream(System.out));
+    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
     int n = Integer.parseInt(bufferedReader.readLine().trim());
 
