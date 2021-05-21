@@ -21,12 +21,26 @@ class Result {
 
   public static List<Integer> rotateLeft(int d, List<Integer> arr) {
     // Write your code here
-    for (int i = 0; i < d; i++) {
-      Integer temp = arr.get(0);
-      for (int j = 0; j < arr.size() - 1; j++) {
-        arr.set(j, arr.get(j + 1));
+    /* for (int i = 0; i < d; i++) {
+        Integer temp = arr.get(0);
+        for (int j = 0; j < arr.size() - 1; j++) {
+          arr.set(j, arr.get(j + 1));
+        }
+        arr.set(arr.size() - 1, temp);
       }
-      arr.set(arr.size() - 1, temp);
+    */
+    List<Integer> temp = new ArrayList<Integer>(d);
+
+    for (int i = 0; i < d; i++) {
+      temp.add(i, arr.get(i));
+    }
+
+    for (int i = 0; i < arr.size() - d; i++) {
+      arr.set(i, arr.get(i + d));
+    }
+
+    for (int i = 0; i < d; i++) {
+      arr.set(i + arr.size() - d, temp.get(i));
     }
 
     return arr;
